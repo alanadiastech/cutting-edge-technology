@@ -1,0 +1,87 @@
+<h2 class="contact__title">Fale conosco</h2>
+<section class="contact__container">
+  <form class="contact-form" [formGroup]="formContato" (ngSubmit)="enviarFormulario()">
+    <input type="text"
+           placeholder="Digite seu nome"
+           formControlName="nome"
+           [class.valid]="formContato.controls['nome'].valid"
+           [class.invalid]="formContato.controls['nome'].invalid &&
+           (formContato.controls['nome'].touched || formContato.controls['nome'].dirty)">
+           <div *ngIf="formContato.controls['nome'].invalid &&
+           (formContato.controls['nome'].touched || formContato.controls['nome'].dirty)">
+              <small class="error-message" *ngIf="formContato.controls['nome'].hasError('minlength')">
+                Mínimo 4 caractres.
+              </small>
+              <small class="error-message" *ngIf="formContato.controls['nome'].hasError('required')">
+                Campo obrigatório.
+              </small>
+           </div>
+    <input type="assunto"
+           placeholder="Digite o assunto"
+           formControlName="assunto"
+           [class.valid]="formContato.controls['assunto'].valid"
+           [class.invalid]="formContato.controls['assunto'].invalid &&
+           (formContato.controls['assunto'].touched || formContato.controls['assunto'].dirty)">
+           <div *ngIf="formContato.controls['assunto'].invalid &&
+           (formContato.controls['assunto'].touched || formContato.controls['assunto'].dirty)">
+              <small class="error-message" *ngIf="formContato.controls['assunto'].hasError('minlength')">
+                Mínimo 10 caractres.
+              </small>
+              <small class="error-message" *ngIf="formContato.controls['assunto'].hasError('required')">
+                Campo obrigatório.
+              </small>
+           </div>
+    <input type="tel"
+           placeholder="(00)0 0000-0000"
+           mask="(00) 0 0000-0000"
+           formControlName="telefone"
+           [class.valid]="formContato.controls['telefone'].valid"
+           [class.invalid]="formContato.controls['telefone'].invalid &&
+           (formContato.controls['telefone'].touched || formContato.controls['telefone'].dirty)">
+           <div *ngIf="formContato.controls['telefone'].invalid &&
+           (formContato.controls['telefone'].touched || formContato.controls['telefone'].dirty)">
+              <small class="error-message" *ngIf="formContato.controls['telefone'].hasError('minlength')">
+                Mínimo 11 caractres.
+              </small>
+              <small class="error-message" *ngIf="formContato.controls['telefone'].hasError('required')">
+                Campo obrigatório.
+              </small>
+           </div>
+    <input type="email"
+           placeholder="Digite o seu e-mail"
+           formControlName="email"
+           [class.valid]="formContato.controls['email'].valid"
+           [class.invalid]="formContato.controls['email'].invalid &&
+           (formContato.controls['email'].touched || formContato.controls['email'].dirty)">
+           <div *ngIf="formContato.controls['email'].invalid &&
+           (formContato.controls['email'].touched || formContato.controls['email'].dirty)">
+              <small class="error-message" *ngIf="formContato.controls['email'].hasError('email')">
+                Preencha com um e-mail válido.
+              </small>
+              <small class="error-message" *ngIf="formContato.controls['email'].hasError('required')">
+                Campo obrigatório.
+              </small>
+           </div>
+    <textarea maxlength="300"
+              placeholder="Mensagem"
+              rows="6"
+              formControlName="mensagem"
+              [class.valid]="formContato.controls['mensagem'].valid"
+              [class.invalid]="formContato.controls['mensagem'].invalid &&
+           (formContato.controls['mensagem'].touched || formContato.controls['mensagem'].dirty)"></textarea>
+           <div *ngIf="formContato.controls['mensagem'].invalid &&
+           (formContato.controls['mensagem'].touched || formContato.controls['mensagem'].dirty)">
+              <small class="error-message" *ngIf="formContato.controls['mensagem'].hasError('minlength')">
+                Mínimo 20 caractres.
+              </small>
+              <small class="error-message" *ngIf="formContato.controls['mensagem'].hasError('required')">
+                Campo obrigatório.
+              </small>
+           </div>
+    <button [disabled]="formContato.invalid" type="submit">Enviar</button>
+  </form>
+  <address>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59935785.8497624!2d-114.17669550000002!3d-23.52566579999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce58031d7da165%3A0x3cc6fc1e14982a33!2sCapgemini%20Business%20Services%20Brasil-Assessoria%20Empresarial!5e0!3m2!1spt-BR!2sbr!4v1677267579696!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <p>Av. Francisco Matarazzo, 1500 - Água Branca, São Paulo - SP, 05033-070</p>
+  </address>
+</section>
